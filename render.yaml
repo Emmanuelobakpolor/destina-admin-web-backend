@@ -12,7 +12,7 @@ services:
       - key: DEBUG
         value: false
       - key: ALLOWED_HOSTS
-        value: your-render-app-url.onrender.com
+        value: destina-admin-web-backend.onrender.com
       - key: DATABASE_URL
         fromDatabase:
           type: postgresql
