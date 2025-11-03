@@ -27,31 +27,31 @@ class LoginView(generics.GenericAPIView):
 class TransportCompanyListCreateView(generics.ListCreateAPIView):
     queryset = TransportCompany.objects.all().order_by('-date_joined')
     serializer_class = TransportCompanySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 
 class RouteListCreateView(generics.ListCreateAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 
 class HostTripListCreateView(generics.ListCreateAPIView):
     queryset = HostTrip.objects.all().order_by('-date_joined')
     serializer_class = HostTripSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 
 class ReservationListCreateView(generics.ListCreateAPIView):
     queryset = Reservation.objects.all().order_by('-date')
     serializer_class = ReservationSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
 
 class ReservationApprovalView(generics.UpdateAPIView):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
@@ -70,7 +70,7 @@ class ReservationApprovalView(generics.UpdateAPIView):
 class ReservationReceiptView(generics.RetrieveAPIView):
     queryset = Reservation.objects.all()
     serializer_class = ReservationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
