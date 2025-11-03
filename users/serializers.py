@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
 class RouteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Route
-        fields = ['id', 'departure_terminal', 'destination_terminal']
+        fields = ['id', 'company', 'departure_terminal', 'destination_terminal']
 
 class TransportCompanySerializer(serializers.ModelSerializer):
     routes = RouteSerializer(many=True, read_only=True)
