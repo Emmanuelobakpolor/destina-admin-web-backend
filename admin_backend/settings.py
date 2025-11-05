@@ -48,18 +48,25 @@ INSTALLED_APPS = [
     'users',
     'cloudinary_storage',
     'cloudinary',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",   # React or frontend dev server
+    "http://127.0.0.1:3000",
+    "http://localhost:5002",   # if your admin runs here
+    "http://127.0.0.1:5002",
+]
 ROOT_URLCONF = 'admin_backend.urls'
 
 TEMPLATES = [
