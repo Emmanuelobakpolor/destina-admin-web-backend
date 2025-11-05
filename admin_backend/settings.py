@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-idw3l6cbtf=d(&j&m+bc=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['destina-admin-web-backend.onrender.com', 'destina-backend.onrender.com', '5002']
+ALLOWED_HOSTS = ['destina-admin-web-backend.onrender.com', 'destina-backend.onrender.com', 'http://localhost:3000', 'http://localhost:5002', 'http://localhost:8000']
 
 
 # Application definition
