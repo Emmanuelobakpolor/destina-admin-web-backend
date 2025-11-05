@@ -6,3 +6,4 @@ dj-database-url
 cloudinary
 Pillow
 gunicorn
+corsheaders
