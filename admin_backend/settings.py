@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import cloudinary.api
+import cloudinary.uploader
+import cloudinary
 import os
 from pathlib import Path
 import dj_database_url
@@ -22,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-idw3l6cbtf=d(&j&m+bc=4^l!t32f2)tygq4pdfmk2tx2^*zhr')
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', 'django-insecure-idw3l6cbtf=d(&j&m+bc=4^l!t32f2)tygq4pdfmk2tx2^*zhr')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
@@ -30,6 +34,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 ALLOWED_HOSTS = [
     'destina-admin-web-backend.onrender.com',
     'destina-backend.onrender.com',
+    'destina-transport-company-admin.vercel.app',
     'localhost',
     '127.0.0.1'
 ]
@@ -65,7 +70,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",   # React or frontend dev server
     "http://127.0.0.1:3000",
     "http://localhost:5002",   # if your admin runs here
-    "http://127.0.0.1:5002",
+    "https://destina-transport-company-admin.vercel.app",
 ]
 ROOT_URLCONF = 'admin_backend.urls'
 
@@ -151,9 +156,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 
 # Cloudinary settings
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
