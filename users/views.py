@@ -40,7 +40,10 @@ class HostTripListCreateView(generics.ListCreateAPIView):
     queryset = HostTrip.objects.all().order_by('-date_joined')
     serializer_class = HostTripSerializer
     permission_classes = [permissions.AllowAny]
-
+class HostTripRetrieveDestroyView(generics.RetrieveDestroyAPIView):
+    queryset = HostTrip.objects.all()
+    serializer_class = HostTripSerializer
+    permission_classes = [permissions.AllowAny]
 
 class HostTripDetailView(generics.RetrieveDestroyAPIView):
     queryset = HostTrip.objects.all()

@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (
-    RouteListCreateView, SignupView, LoginView, TransportCompanyListCreateView,
+    HostTripRetrieveDestroyView, RouteListCreateView, SignupView, LoginView, TransportCompanyListCreateView,
     HostTripListCreateView, ReservationListCreateView, ReservationApprovalView, ReservationReceiptView
 )
 
@@ -14,4 +14,6 @@ urlpatterns = [
     path('reservations/', ReservationListCreateView.as_view(), name='reservations'),
     path('reservations/<int:pk>/approve/', ReservationApprovalView.as_view(), name='reservation-approve'),
     path('reservations/<int:pk>/receipt/', ReservationReceiptView.as_view(), name='reservation-receipt'),
+    path('host-trips/<int:pk>/', HostTripRetrieveDestroyView.as_view(), name='host-trip-delete'),
+
 ]
