@@ -26,14 +26,14 @@ class TransportCompanySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'vehicle_number', 'vehicle_image', 'date_joined', 'status', 'routes']
 
 class HostTripSerializer(serializers.ModelSerializer):
-    route_details = RouteSerializer(source='route', read_only=True)
-    transport_company_name = serializers.CharField(source='transport_company.company_name', read_only=True)
+    company_name = serializers.CharField(source='company.name', read_only=True)
 
     class Meta:
         model = HostTrip
         fields = [
-            'id', 'transport_company', 'transport_company_name', 'route', 'route_details',
-            'departure_date', 'departure_time', 'available_seats', 'vehicle_image', 'date_joined'
+            'id', 'startpoint', 'endpoint', 'departure_time', 'amount',
+            'route_description', 'assigned_bus', 'company', 'company_name',
+            'date_joined', 'status'
         ]
 
 class ReservationSerializer(serializers.ModelSerializer):
@@ -49,7 +49,7 @@ class ReservationSerializer(serializers.ModelSerializer):
 
     def get_route_details(self, obj):
         return {
-            'origin': obj.host_trip.route.origin,
-            'destination': obj.host_trip.route.destination,
-            'company': obj.host_trip.transport_company.company_name
+            'departure_terminal': obj.route.departure_terminal,
+            'destination_terminal': obj.route.destination_terminal,
+            'company': obj.route.company.name
         }
