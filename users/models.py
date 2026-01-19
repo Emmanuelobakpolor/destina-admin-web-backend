@@ -41,6 +41,8 @@ class Route(models.Model):
 class HostTrip(models.Model):
     startpoint = models.CharField(max_length=255)
     endpoint = models.CharField(max_length=255)
+# In models.py
+    departure_date = models.DateField(null=True, blank=True) 
     departure_time = models.TimeField()
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     route_description = models.TextField(blank=True, null=True)

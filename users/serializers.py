@@ -31,7 +31,7 @@ class HostTripSerializer(serializers.ModelSerializer):
     class Meta:
         model = HostTrip
         fields = [
-            'id', 'startpoint', 'endpoint', 'departure_time', 'amount',
+            'id', 'startpoint', 'endpoint', 'departure_date', 'departure_time', 'amount',
             'route_description', 'assigned_bus', 'company', 'company_name',
             'date_joined', 'status'
         ]
