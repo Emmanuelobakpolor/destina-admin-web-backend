@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     HostTripRetrieveDestroyView, RouteListCreateView, SignupView, LoginView, TransportCompanyListCreateView,
-    HostTripListCreateView, ReservationListCreateView, ReservationApprovalView, ReservationReceiptView
+    TransportCompanyRetrieveDestroyView, HostTripListCreateView, ReservationListCreateView, ReservationApprovalView, ReservationReceiptView
 )
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
 
     path('companies/', TransportCompanyListCreateView.as_view(), name='companies'),
+    path('companies/<int:pk>/', TransportCompanyRetrieveDestroyView.as_view(), name='company-detail'),
     path('routes/', RouteListCreateView.as_view(), name='routes'),
     path('host-trips/', HostTripListCreateView.as_view(), name='host-trips'),
     path('reservations/', ReservationListCreateView.as_view(), name='reservations'),

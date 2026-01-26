@@ -30,6 +30,12 @@ class TransportCompanyListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.AllowAny]
 
 
+class TransportCompanyRetrieveDestroyView(generics.RetrieveDestroyAPIView):
+    queryset = TransportCompany.objects.all()
+    serializer_class = TransportCompanySerializer
+    permission_classes = [permissions.AllowAny]
+
+
 class RouteListCreateView(generics.ListCreateAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
