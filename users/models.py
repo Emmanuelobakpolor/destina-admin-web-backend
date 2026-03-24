@@ -20,8 +20,9 @@ STATUS_CHOICES = (
 
 class TransportCompany(models.Model):
     name = models.CharField(max_length=255)
+    logo = models.ImageField(upload_to='company_logos/', blank=True, null=True)  # Company logo
     vehicle_number = models.CharField(max_length=20, blank=True, null=True)  # Vehicle plate number
-    vehicle_image = models.ImageField(upload_to='vehicle_images/', blank=True, null=True)  # Image of vehicle plate number
+    vehicle_image = models.ImageField(upload_to='vehicle_images/', blank=True, null=True)  # Image of vehicle
     date_joined = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='active')
 

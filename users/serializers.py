@@ -23,7 +23,7 @@ class TransportCompanySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TransportCompany
-        fields = ['id', 'name', 'vehicle_number', 'vehicle_image', 'date_joined', 'status', 'routes']
+        fields = ['id', 'name', 'logo', 'vehicle_number', 'vehicle_image', 'date_joined', 'status', 'routes']
 
 class HostTripSerializer(serializers.ModelSerializer):
     company_name = serializers.CharField(source='company.name', read_only=True)
